@@ -56,6 +56,14 @@ function! s:request(name, param, opt, ctx) abort
       \ }
 
     let l:buffer = json_encode(l:req) . "\n"
+    let l:tabnine_path = s:get_tabnine_path(s:binary_dir)
+    let l:cmd = [
+      \   l:tabnine_path,
+      \   '--client',
+      \   'sublime',
+      \   '--log-file-path',
+      \   s:binary_dir . '/tabnine.log',
+      \ ]
     let s:job = jobstart(l:cmd, {'on_stdout': function("s:callback", [a:opt, a:ctx])})
     call chansend(s:job, l:buffer)
 endfunction
