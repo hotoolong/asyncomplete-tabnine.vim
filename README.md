@@ -1,5 +1,6 @@
 ## asyncomplete-tabnine.vim
 
+
 [asyncomplete](https://github.com/prabirshrestha/asyncomplete.vim) source for [TabNine](https://www.tabnine.com/)
 
 ### Installation
@@ -51,3 +52,7 @@ The max number of results from Tabnine.
 
 Copied `install.sh` and `install.ps1` from this plugin.
 
+## Attention
+
+This plugin only supports neovim.
+if you want to use it with vim, please refer to the fork source.
