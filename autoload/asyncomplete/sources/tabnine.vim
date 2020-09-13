@@ -64,7 +64,9 @@ function! s:request(name, param, opt, ctx) abort
       \   '--log-file-path',
       \   s:binary_dir . '/tabnine.log',
       \ ]
-    let s:job = jobstart(l:cmd, {'on_stdout': function("s:callback", [a:opt, a:ctx])})
+    if !exists("s:job")
+        let s:job = jobstart(l:cmd, {'on_stdout': function("s:callback", [a:opt, a:ctx])})
+    endif
     call chansend(s:job, l:buffer)
 endfunction
 
