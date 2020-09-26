@@ -71,7 +71,7 @@ function! s:request(name, param, opt, ctx) abort
 endfunction
 
 function! s:callback(opt, ctx, job_id, msg, event) abort
-    if len(a:msg) == 0
+    if len(a:msg) == 0 || a:msg[0] == ''
         return
     endif
     let l:col = a:ctx['col']
